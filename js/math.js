@@ -34,6 +34,7 @@
     const cross = (B.x - A.x) * (C.y - A.y) - (B.y - A.y) * (C.x - A.x);
     const S = Math.abs(cross) / 2 / (unit * unit);
     const ok = isTriangle(a, b, c) && S > 0.12;
+    if (!(a > 0 && b > 0 && c > 0)) return { a, b, c, S, ok: false, A: 0, B: 0, C: 0 }; // hai đỉnh trùng nhau
     const angA = angleFromSides(a, b, c).deg, angB = angleFromSides(b, a, c).deg;
     return { a, b, c, S, ok, A: angA, B: angB, C: 180 - angA - angB };
   }

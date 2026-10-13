@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
   P.helper(g('helper'));
   const ex = g('examples');
   P.examples().forEach(function (e) { const d = document.createElement('div'); d.className = 'calc'; ex.appendChild(d); P.exampleBox(d, e); });
+  if (g('ex-fig')) { L.exampleFigure(g('ex-fig')); ex.insertBefore(g('ex-fig'), ex.children[4] || null); } // hình nằm ngay trước Ví dụ 4 (bài mẫu)
   P.flashcards(g('cards'));
   P.quiz(g('quiz'));
   window.UI.setup();
