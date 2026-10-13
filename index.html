@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hệ thức lượng trong tam giác — học từ con số 0</title>
+<meta name="description" content="Trang học Toán lớp 10 cho bạn mất gốc: định lí cosin, định lí sin, công thức diện tích tam giác, có hình kéo thả, mẹo nhớ và bài tập.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<link rel="stylesheet" href="css/style.css?v=2">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="js/math.js?v=2"></script>
+<script defer src="js/ui.js?v=2"></script>
+<script defer src="js/labs.js?v=2"></script>
+<script defer src="js/practice.js?v=2"></script>
+<script defer src="js/main.js?v=2"></script>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <h1>📐 Hệ thức lượng trong tam giác</h1>
+  <p>Học từ con số 0. Không cần biết trước gì cả: mỗi công thức đều có <b>giải thích bằng lời</b>, <b>hình kéo thả để tự kiểm chứng</b>, <b>mẹo nhớ</b> và <b>bài tập có lời giải</b>. Cứ đi từ trên xuống dưới, từng phần một.</p>
+  <div class="cta"><a class="btn" href="#bat-dau" style="background:#fff;color:#4f46e5">Bắt đầu học ▶</a><a class="btn ghost" href="#tonghop">Xem bảng tóm tắt</a></div>
+  <div class="progressbar" role="progressbar" aria-label="Tiến độ học"><i id="pbar"></i></div><div class="pnote" id="ptxt"></div>
+</div></header>
+<nav class="top" aria-label="Mục lục"><div class="wrap"></div></nav>
+
+<main class="wrap">
+<section class="chap" id="muc-luc">
+  <h2>Mục lục — bạn nên học theo thứ tự này</h2>
+  <p class="lead">Quy ước màu xuyên suốt: <b class="sa">cạnh a (BC) màu đỏ</b>, <b class="sb">cạnh b (AC) màu xanh lá</b>, <b class="sc">cạnh c (AB) màu xanh dương</b>. Góc A đối diện cạnh a nên cũng tô đỏ, tương tự B (lá), C (dương).</p>
+  <div class="toc">
+    <a href="#bat-dau"><b>0. Bắt đầu từ con số 0</b><span>Tên gọi, bình phương, Pytago, sin &amp; cos là gì, máy tính</span></a>
+    <a href="#vuong"><b>1. Tam giác vuông (ôn lại)</b><span>8 hệ thức với đường cao AH, trung tuyến AM</span></a>
+    <a href="#cosin"><b>2. Định lí cosin</b><span>3 công thức + hệ quả + mẹo nhớ</span></a>
+    <a href="#sin"><b>3. Định lí sin</b><span>Đường tròn ngoại tiếp, bán kính R</span></a>
+    <a href="#dientich"><b>4. Công thức diện tích</b><span>5 nhóm: sin, R, r, Heron, đường cao</span></a>
+    <a href="#vidu"><b>5. Ví dụ giải mẫu</b><span>Ví dụ 1 trong vở + 4 ví dụ thêm, bộ chọn công thức</span></a>
+    <a href="#luyentap"><b>6. Luyện tập</b><span>24 câu trắc nghiệm, thẻ ghi nhớ, lỗi hay gặp</span></a>
+    <a href="#tonghop"><b>7. Tóm tắt một trang</b><span>Tất cả công thức để in ra dán lên bàn học</span></a>
+  </div>
+</section>
+
+<!-- ============ 0 ============ -->
+<section class="chap" id="bat-dau" data-track data-nav="0. Từ con số 0">
+  <h2><span class="num">0</span>Bắt đầu từ con số 0</h2>
+  <p class="lead">Nếu bạn quên hết rồi thì không sao. Đọc 5 mục nhỏ này khoảng 10 phút là đủ nền để học tiếp.</p>
+
+  <h3>0.1 Tam giác ABC và cách gọi tên</h3>
+  <p>Tam giác có 3 <b>đỉnh</b> A, B, C (viết chữ HOA), 3 <b>cạnh</b> và 3 <b>góc</b>. Cạnh nối hai đỉnh thì gọi tên bằng hai chữ: AB, BC, AC. Người ta còn đặt tên ngắn cho cạnh bằng <b>chữ thường</b>:</p>
+  <div class="box formula"><span class="mb">\sa=BC\ (\text{đối diện góc }\gA),\qquad \sb=AC\ (\text{đối diện góc }\gB),\qquad \sc=AB\ (\text{đối diện góc }\gC)</span></div>
+  <div class="box tip"><b>💡 Mẹo:</b> chữ thường là cạnh <b>đối diện</b> với chữ hoa cùng tên, tức là cạnh <b>không chứa</b> chữ hoa đó. Cạnh <i>a</i> = BC không có chữ A. Cạnh <i>b</i> = AC không có chữ B. Cạnh <i>c</i> = AB không có chữ C.</div>
+  <div id="lab-naming"></div>
+
+  <h3>0.2 Bình phương, căn bậc hai và Pytago</h3>
+  <p><b>Bình phương</b> của một số là số đó nhân với chính nó: <span class="m">5^2=5\cdot5=25</span>. <b>Căn bậc hai</b> là phép ngược lại: <span class="m">\sqrt{25}=5</span> (vì <span class="m">5^2=25</span>). Chú ý: <span class="m">AB^2</span> nghĩa là (độ dài AB) × (độ dài AB).</p>
+  <p><b>Tam giác vuông</b> là tam giác có một góc 90°. Hai cạnh tạo góc vuông gọi là <b>cạnh góc vuông</b>, cạnh còn lại (đối diện góc vuông, dài nhất) gọi là <b>cạnh huyền</b>. Định lí Pytago nói:</p>
+  <div class="box formula"><span class="nm">Định lí Pytago (tam giác ABC vuông tại A)</span><span class="mb">BC^2=AB^2+AC^2</span></div>
+  <p>Ví dụ: AB = 3, AC = 4 thì <span class="m">BC^2=9+16=25</span>, nên <span class="m">BC=5</span>.</p>
+
+  <h3>0.3 Sin và cos là gì?</h3>
+  <p>Trong tam giác <b>vuông</b>, chọn một góc nhọn α. Có 3 cạnh được gọi tên theo góc α: <b>cạnh huyền</b>, <b>cạnh đối</b> (đối diện α), <b>cạnh kề</b> (nằm cạnh α, không phải cạnh huyền).</p>
+  <div class="box formula"><span class="mb">\sin\alpha=\dfrac{\text{cạnh đối}}{\text{cạnh huyền}},\qquad \cos\alpha=\dfrac{\text{cạnh kề}}{\text{cạnh huyền}}</span></div>
+  <div class="box tip"><b>💡 Mẹo thuộc lòng:</b> <b>"Sin đi học, Cos không hư"</b> → <b>Sin = Đối / Huyền</b> (đi học: Đ-H), <b>Cos = Kề / Huyền</b> (không hư: K-H). (Thêm: "Tan đoàn kết" → tan = Đối/Kề.)</div>
+  <p>Vậy với góc tù (lớn hơn 90°) thì sao? Trong tam giác vuông không thể có góc tù, nên người ta mở rộng bằng nửa đường tròn bán kính 1. Hãy kéo thanh trượt dưới đây để thấy: <b>góc nhọn → cos dương; góc 90° → cos = 0; góc tù → cos ÂM</b>. Điều này cực kì quan trọng cho định lí cosin.</p>
+  <div id="lab-sincos"></div>
+
+  <h3>0.4 Giá trị cần nhớ của các góc đặc biệt</h3>
+  <div class="tablewrap"><table>
+    <tr><th>Góc</th><th>0°</th><th>30°</th><th>45°</th><th>60°</th><th>90°</th><th>120°</th><th>135°</th><th>150°</th><th>180°</th></tr>
+    <tr><th>sin</th><td><span class="m">0</span></td><td><span class="m">\tfrac12</span></td><td><span class="m">\tfrac{\sqrt2}2</span></td><td><span class="m">\tfrac{\sqrt3}2</span></td><td><span class="m">1</span></td><td><span class="m">\tfrac{\sqrt3}2</span></td><td><span class="m">\tfrac{\sqrt2}2</span></td><td><span class="m">\tfrac12</span></td><td><span class="m">0</span></td></tr>
+    <tr><th>cos</th><td><span class="m">1</span></td><td><span class="m">\tfrac{\sqrt3}2</span></td><td><span class="m">\tfrac{\sqrt2}2</span></td><td><span class="m">\tfrac12</span></td><td><span class="m">0</span></td><td><span class="m">-\tfrac12</span></td><td><span class="m">-\tfrac{\sqrt2}2</span></td><td><span class="m">-\tfrac{\sqrt3}2</span></td><td><span class="m">-1</span></td></tr>
+  </table></div>
+  <div class="box tip"><b>💡 Mẹo nhớ bảng:</b> với các góc <b>0°, 30°, 45°, 60°, 90°</b>, sin lần lượt là <span class="m">\tfrac{\sqrt0}2,\tfrac{\sqrt1}2,\tfrac{\sqrt2}2,\tfrac{\sqrt3}2,\tfrac{\sqrt4}2</span> (tức 0, ½, √2/2, √3/2, 1). cos thì viết <b>ngược lại</b>. Góc tù: <span class="m">\sin(180^\circ-x)=\sin x</span> còn <span class="m">\cos(180^\circ-x)=-\cos x</span> (ví dụ cos 120° = −cos 60° = −½).</div>
+
+  <h3>0.5 Dùng máy tính cầm tay (Casio, Vinacal…)</h3>
+  <ul>
+    <li>Kiểm tra máy ở chế độ <b>độ</b> (trên màn hình có chữ <b>D</b> hoặc <b>Deg</b>), không phải radian (R).</li>
+    <li>Tính cos 45°: bấm <code>cos</code> <code>45</code> <code>)</code> <code>=</code>. (Máy khác nhau, có máy không cần dấu ngoặc.)</li>
+    <li>Tìm góc khi biết cos: bấm <code>SHIFT</code> rồi <code>cos</code> (ra <span class="m">\cos^{-1}</span>), nhập số hoặc phân số, bấm <code>=</code>. Tương tự với sin: <code>SHIFT</code> <code>sin</code>.</li>
+    <li>Căn bậc hai: phím <code>√</code>. Phân số: phím <code>a b/c</code> hoặc phím phân số.</li>
+    <li><b>Chú ý:</b> bấm cả tử số và mẫu số vào <b>trong một phân số</b> (hoặc đặt ngoặc), đừng gõ <code>6 ÷ 2 × 3</code> khi muốn <span class="m">\tfrac{6}{2\cdot3}</span>.</li>
+  </ul>
+  <h3>0.6 Hai mẹo về tam giác nên biết</h3>
+  <ul>
+    <li><b>Tổng ba góc</b> của tam giác bằng 180°: <span class="m">A+B+C=180^\circ</span>.</li>
+    <li><b>Cạnh lớn đối diện góc lớn:</b> cạnh dài nhất đối diện góc lớn nhất. Tổng hai cạnh bất kì luôn lớn hơn cạnh còn lại.</li>
+  </ul>
+  <div id="lab-plain"></div>
+</section>
+
+<!-- ============ 1 ============ -->
+<section class="chap" id="vuong" data-track data-nav="1. Tam giác vuông">
+  <h2><span class="num">1</span>Tam giác vuông: ôn lại các hệ thức</h2>
+  <p class="lead">Cho tam giác ABC <b>vuông tại A</b>. AH là <b>đường cao</b> (H nằm trên BC, AH vuông góc BC). M là <b>trung điểm</b> của BC (BM = MC). BH và CH gọi là các <b>hình chiếu</b> của AB, AC lên BC.</p>
+  <div id="lab-right"></div>
+  <p class="labhelp">Kéo thanh trượt, xem cột bên dưới: dòng nào cũng có dấu ✓. Đó là lý do chúng ta gọi chúng là "hệ thức".</p>
+
+  <div class="grid2">
+    <div class="box formula"><span class="nm">① Pytago</span><span class="mb">BC^2=AB^2+AC^2</span></div>
+    <div class="box formula"><span class="nm">② Hình chiếu cạnh AB</span><span class="mb">AB^2=BH\cdot BC</span></div>
+    <div class="box formula"><span class="nm">③ Hình chiếu cạnh AC</span><span class="mb">AC^2=CH\cdot CB</span></div>
+    <div class="box formula"><span class="nm">④ Đường cao bình phương</span><span class="mb">AH^2=BH\cdot CH</span></div>
+    <div class="box formula"><span class="nm">⑤ Đường cao nhân huyền</span><span class="mb">AH\cdot BC=AB\cdot AC</span></div>
+    <div class="box formula"><span class="nm">⑥ Nghịch đảo bình phương</span><span class="mb">\dfrac1{AH^2}=\dfrac1{AB^2}+\dfrac1{AC^2}</span></div>
+    <div class="box formula"><span class="nm">⑦ Trung tuyến ứng cạnh huyền</span><span class="mb">AM=\tfrac12BC\iff 2AM=BC</span></div>
+    <div class="box formula"><span class="nm">⑧ Diện tích</span><span class="mb">S_{ABC}=\tfrac12AB\cdot AC=\tfrac12AH\cdot BC</span></div>
+  </div>
+  <div class="mn">
+    <div class="c"><h4>② ③ Hình chiếu</h4><p>"<b>Cạnh góc vuông bình phương = hình chiếu của nó × cạnh huyền.</b>" AB có hình chiếu BH nên <span class="m">AB^2=BH\cdot BC</span>. AB và BH <b>cùng chứa B</b> — cứ ghép "cùng đỉnh B" là không sai.</p></div>
+    <div class="c"><h4>④ AH²</h4><p>"<b>Đường cao bình phương = tích hai hình chiếu.</b>" Hai hình chiếu là BH và CH — hai đoạn H chia BC.</p></div>
+    <div class="c"><h4>⑤ AH·BC</h4><p>Cả hai vế đều bằng <b>2 lần diện tích</b>: <span class="m">AB\cdot AC=2S</span> và <span class="m">AH\cdot BC=2S</span>. Đó là ⑧ viết lại.</p></div>
+    <div class="c"><h4>⑥ Nghịch đảo</h4><p>Có <b>1 trên bình phương</b> ở cả ba chỗ. Ghi nhớ: "1 trên AH bình = 1 trên AB bình + 1 trên AC bình" — giống Pytago nhưng lật ngược mọi thứ. Công thức này suy ra từ ⑤ và ①.</p></div>
+    <div class="c"><h4>⑦ AM</h4><p>Điểm M (giữa BC) cách đều A, B, C. Nên AM = MB = MC = nửa BC. Hình tưởng tượng: tam giác vuông nội tiếp nửa đường tròn tâm M.</p></div>
+  </div>
+  <h3>Ví dụ nhanh</h3>
+  <p>AB = 3, AC = 4 ⇒ BC = 5 (Pytago). Đường cao <span class="m">AH=\dfrac{AB\cdot AC}{BC}=\dfrac{12}5=2{,}4</span>. <span class="m">BH=\dfrac{AB^2}{BC}=\dfrac95=1{,}8</span>, <span class="m">CH=\dfrac{AC^2}{BC}=\dfrac{16}5=3{,}2</span> (kiểm tra: BH + CH = 5 ✓). <span class="m">AM=2{,}5</span>. Diện tích <span class="m">S=\tfrac12\cdot3\cdot4=6</span>.</p>
+  <div class="box warn"><b>⚠️ Lỗi hay gặp:</b> các hệ thức ②–⑥ <b>chỉ đúng khi tam giác vuông tại A</b> và H là chân đường cao kẻ từ A. Đừng dùng cho tam giác thường. Với tam giác thường, ta cần các định lí cosin/sin ở các phần sau.</div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section class="chap" id="cosin" data-track data-nav="2. Định lí cosin">
+  <h2><span class="num">2</span>Định lí cosin</h2>
+  <p class="lead">Pytago chỉ dùng được cho tam giác vuông. Định lí cosin là "Pytago nâng cấp" dùng cho <b>mọi</b> tam giác.</p>
+
+  <h3>2.1 Phát biểu</h3>
+  <p>Cho tam giác ABC có <span class="m">AB=c</span>, <span class="m">BC=a</span>, <span class="m">AC=b</span>. Khi đó ta có:</p>
+  <div class="box formula"><span class="nm">Cạnh BC (đối diện góc A)</span><span class="mb">BC^2=AB^2+AC^2-2\cdot AB\cdot AC\cdot\cos A</span><span class="mb">\iff\ \sa^2=\sc^2+\sb^2-2\,\sc\,\sb\cos\gA</span></div>
+  <div class="box formula"><span class="nm">Cạnh AC (đối diện góc B)</span><span class="mb">AC^2=BC^2+AB^2-2\cdot BC\cdot AB\cdot\cos B</span><span class="mb">\iff\ \sb^2=\sa^2+\sc^2-2\,\sa\,\sc\cos\gB</span></div>
+  <div class="box formula"><span class="nm">Cạnh AB (đối diện góc C)</span><span class="mb">AB^2=BC^2+AC^2-2\cdot BC\cdot AC\cdot\cos C</span><span class="mb">\iff\ \sc^2=\sa^2+\sb^2-2\,\sa\,\sb\cos\gC</span></div>
+  <div class="slip"><b>Ghi chú về vở:</b> trong vở, dòng cuối viết <span class="m">AB^2=\dots</span>. Đây là công thức đúng. (Dòng cuối của phần hệ quả trong vở thiếu dấu bình phương ở chữ c: ở đây ta viết đúng là <span class="m">\cos C=\dfrac{a^2+b^2-c^2}{2ab}</span>.)</div>
+
+  <h3>2.2 Mẹo nhớ — chỉ cần nhớ MỘT công thức</h3>
+  <div class="mn">
+    <div class="c"><h4>Mẹo 1: "BC² không có A"</h4><p>Ở vế trái là <span class="m">BC^2</span> — cạnh <b>không chứa A</b>. Vế phải là <b>hai cạnh có chứa A</b> (AB và AC) và <span class="m">\cos A</span>: <br><b>BC² = AB² + AC² − 2·AB·AC·cos A</b>. <br>Muốn viết cho cạnh khác thì chỉ cần <b>xoay chữ cái</b>: cạnh nào đứng đầu, góc nằm "đối diện" nó sẽ là góc trong cos.</p></div>
+    <div class="c"><h4>Mẹo 2: "Pytago + phần sửa"</h4><p>Hai cạnh bình phương cộng nhau giống hệt Pytago, rồi <b>trừ đi một phần sửa</b> <span class="m">2\cdot AB\cdot AC\cdot\cos A</span>. Nếu A = 90° thì cos A = 0, phần sửa = 0 ⇒ trở về Pytago.</p></div>
+    <div class="c"><h4>Mẹo 3: Đọc thành lời</h4><p>"Cạnh đối bình phương = <b>tổng bình phương hai cạnh kia</b> − <b>hai lần tích hai cạnh kia</b> × <b>cos góc xen giữa</b>."</p></div>
+    <div class="c"><h4>Mẹo 4: Dấu trừ</h4><p>Luôn là dấu <b>trừ</b> (không bao giờ cộng) vì khi cos âm thì phép trừ tự thành cộng. Đừng tự đổi dấu!</p></div>
+  </div>
+
+  <h3>2.3 Hãy tự thí nghiệm</h3>
+  <p>Giữ nguyên hai cạnh b và c, chỉ xoay góc A. Bạn sẽ thấy cạnh a thay đổi và vì sao dấu "−" lại quan trọng.</p>
+  <div id="lab-cosrot"></div>
+  <p>Và đây là tam giác bất kì: kéo các đỉnh để thấy cả ba công thức cosin đều luôn đúng.</p>
+  <div id="lab-cosin"></div>
+
+  <h3>2.4 Hệ quả — tìm góc khi biết ba cạnh</h3>
+  <p>Từ <span class="m">a^2=b^2+c^2-2bc\cos A</span>, chuyển vế để rút <span class="m">\cos A</span> ra:</p>
+  <div class="box formula"><span class="mb">\cos A=\dfrac{b^2+c^2-a^2}{2bc}</span><span class="mb">\cos B=\dfrac{a^2+c^2-b^2}{2ac}</span><span class="mb">\cos C=\dfrac{a^2+b^2-c^2}{2ab}</span></div>
+  <div class="slip"><b>Ghi chú về vở:</b> trong vở, ở hệ quả của cos C, trên tử có chỗ viết thiếu dấu bình phương (viết "−c"), đúng phải là <span class="m">-c^2</span>.</div>
+  <div class="box tip"><b>💡 Mẹo nhớ hệ quả:</b> "<b>Hai cạnh kề A bình phương cộng nhau, TRỪ cạnh đối (a) bình phương. Chia cho hai lần tích hai cạnh kề A.</b>" Mẫu số chỉ chứa hai cạnh <b>kề</b> với góc cần tìm, còn cạnh đối đứng ở tử và có dấu trừ.</div>
+  <div class="box ok"><b>✅ Nhìn dấu để biết loại góc:</b> tử số <span class="m">b^2+c^2-a^2</span> dương ⇒ A nhọn; bằng 0 ⇒ A vuông; âm ⇒ A tù. Mẫu số luôn dương.</div>
+
+  <h3>2.5 Khi nào dùng cosin?</h3>
+  <table><tr><th>Đề cho</th><th>Cần tìm</th><th>Dùng</th></tr>
+  <tr><td>Hai cạnh + góc <b>xen giữa</b></td><td>cạnh thứ ba</td><td>Định lí cosin</td></tr>
+  <tr><td>Ba cạnh</td><td>một góc</td><td>Hệ quả cosin</td></tr></table>
+  <div class="box warn"><b>⚠️ Lỗi hay gặp:</b> (1) Dùng sai góc: cos phải là góc <b>xen giữa</b> hai cạnh được nhân. (2) Quên dấu trừ. (3) Quên lấy căn khi tìm cạnh (đáp số tìm được là <span class="m">a^2</span>, chưa phải <span class="m">a</span>). (4) Máy tính đang ở chế độ radian.</div>
+
+  <h3>2.6 Máy tính từng bước</h3>
+  <div id="calc-cs"></div><div id="calc-ca"></div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section class="chap" id="sin" data-track data-nav="3. Định lí sin">
+  <h2><span class="num">3</span>Định lí sin</h2>
+  <p class="lead">Mọi tam giác đều nội tiếp được trong một đường tròn (đường tròn đi qua cả ba đỉnh), gọi là <b>đường tròn ngoại tiếp</b>, có tâm O và bán kính <b>R</b>.</p>
+  <h3>3.1 Phát biểu</h3>
+  <p>Cho tam giác ABC có <span class="m">AB=c,\ AC=b,\ BC=a</span>, và R là bán kính đường tròn ngoại tiếp. Khi đó:</p>
+  <div class="box formula"><span class="mb">\dfrac{\sa}{\sin\gA}=\dfrac{\sb}{\sin\gB}=\dfrac{\sc}{\sin\gC}=2R</span></div>
+  <div class="box tip"><b>💡 Mẹo nhớ:</b> (1) <b>"Cạnh chia sin góc ĐỐI DIỆN"</b>: a đi với A, b đi với B, c đi với C — tên giống nhau, một thường một hoa. (2) Cả ba tỉ số bằng nhau và bằng <b>đường kính 2R</b>. (3) Hình thức giống nhau cả ba tỉ số nên không có dấu trừ hay cộng gì cả — dễ hơn cosin!</div>
+  <h3>3.2 Tự kiểm chứng</h3>
+  <p>Kéo các đỉnh: đường tròn tím là đường tròn ngoại tiếp. Bạn thấy cả ba tỉ số luôn bằng 2R.</p>
+  <div id="lab-sin"></div>
+  <h3>3.3 Khi nào dùng sin?</h3>
+  <ul>
+    <li>Biết <b>một cạnh và góc đối diện nó</b> (một "cặp đôi" như a và A), cộng thêm một dữ kiện nữa (một góc khác hoặc một cạnh khác).</li>
+    <li>Biết R hoặc cần tìm R: <span class="m">a=2R\sin A</span>, <span class="m">R=\dfrac{a}{2\sin A}</span>.</li>
+  </ul>
+  <div class="box warn"><b>⚠️ Cái bẫy "hai góc":</b> <span class="m">\sin x=\sin(180^\circ-x)</span>. Vì thế, khi tìm <b>góc</b> bằng sin, máy tính (SHIFT sin) chỉ cho góc nhọn, còn góc thật có thể là góc tù. Ví dụ <span class="m">\sin B=0{,}9933</span> cho <span class="m">B=83{,}4^\circ</span> hoặc <span class="m">96{,}6^\circ</span>. <b>Cách an toàn: cần tìm góc thì dùng hệ quả cosin</b> (mỗi giá trị cos chỉ có đúng một góc từ 0° đến 180°). Xem ví dụ 1 ở phần 5.</div>
+  <div class="box ok"><b>✅ Bài toán tìm cạnh bằng sin thì không bị bẫy</b> — vì ta chỉ nhân chia sin chứ không "quay ngược" ra góc.</div>
+  <h3>3.3 Máy tính từng bước</h3>
+  <div id="calc-sr"></div>
+</section>
+
+<!-- ============ 4 ============ -->
+<section class="chap" id="dientich" data-track data-nav="4. Diện tích">
+  <h2><span class="num">4</span>Các công thức tính diện tích tam giác</h2>
+  <p class="lead">Gọi S là diện tích tam giác ABC. Có nhiều công thức; mỗi công thức hợp với một loại dữ kiện. Bên dưới là toàn bộ 5 nhóm trong vở. Hình tương tác ở cuối cho thấy cả 7 cách cho cùng một kết quả.</p>
+
+  <h3>a) Hai cạnh và góc xen giữa</h3>
+  <div class="box formula"><span class="mb">S=\tfrac12\,bc\sin A=\tfrac12\,ac\sin B=\tfrac12\,ab\sin C</span></div>
+  <div class="box tip"><b>💡 Mẹo:</b> "<b>Nửa tích hai cạnh nhân sin góc xen giữa hai cạnh đó</b>". Giống "½ đáy × cao" vì <span class="m">c\sin A</span> chính là chiều cao hạ từ C xuống AB (nếu bạn tò mò: trong tam giác vuông, sin = đối/huyền).</div>
+
+  <h3>b) Theo bán kính đường tròn ngoại tiếp R</h3>
+  <div class="box formula"><span class="mb">S=\dfrac{abc}{4R}</span></div>
+  <p>Với R là bán kính đường tròn ngoại tiếp tam giác ABC. <b>Mẹo:</b> "ba cạnh nhân nhau, chia 4R".</p>
+
+  <h3>c) Theo bán kính đường tròn nội tiếp r</h3>
+  <div class="box formula"><span class="mb">S=p\cdot r=\dfrac{a+b+c}{2}\cdot r</span></div>
+  <p>Với p là <b>nửa chu vi</b>, <span class="m">p=\dfrac{a+b+c}2</span>, và r là bán kính <b>đường tròn nội tiếp</b> (đường tròn nằm trong tam giác, tiếp xúc cả ba cạnh; tâm là giao điểm của 3 đường phân giác). <b>Mẹo:</b> "S = p r" — nghe như "S = pr (phở)".</p>
+
+  <h3>d) Công thức Heron — chỉ cần biết ba cạnh</h3>
+  <div class="box formula"><span class="mb">S=\sqrt{p\,(p-a)(p-b)(p-c)},\qquad p=\dfrac{a+b+c}{2}</span></div>
+  <div class="box tip"><b>💡 Mẹo:</b> Dưới căn có <b>4 thừa số</b>: p, rồi p trừ lần lượt a, b, c. Nhớ <b>p là nửa chu vi</b>, không phải cả chu vi! Ví dụ 3-4-5: p = 6, <span class="m">S=\sqrt{6\cdot3\cdot2\cdot1}=6</span> ✓.</div>
+
+  <h3>e) Theo đường cao</h3>
+  <p>Gọi <span class="m">h_a,h_b,h_c</span> là các đường cao hạ từ A, B, C xuống các cạnh BC, AC, AB. <span class="m">h_a</span> là độ dài đoạn AH với H là chân đường vuông góc từ A xuống BC.</p>
+  <div class="box formula"><span class="mb">S=\tfrac12\,a\,h_a=\tfrac12\,b\,h_b=\tfrac12\,c\,h_c</span></div>
+  <div class="slip"><b>Ghi chú về vở:</b> vở ghi "AH = h_a; BH = h_b; CH = h_c" ở phần này. Chuẩn hơn: <b>mỗi đường cao xuất phát từ một đỉnh</b>: <span class="m">h_a</span> = đường cao từ <b>A</b> (xuống cạnh a = BC), <span class="m">h_b</span> = đường cao từ <b>B</b> (xuống AC), <span class="m">h_c</span> = đường cao từ <b>C</b> (xuống AB). Chữ nhỏ chỉ <b>cạnh đáy</b> mà đường cao rơi xuống. Và vở chưa ghi công thức diện tích ½·cạnh·đường cao, ở đây đã bổ sung.</div>
+
+  <h3>Hình tương tác: 7 cách, một kết quả</h3>
+  <div id="lab-area"></div>
+  <h3>Máy tính từng bước (Heron)</h3>
+  <div id="calc-he"></div>
+  <div class="box"><b>Chọn công thức nào?</b>
+    <table><tr><th>Đề cho</th><th>Dùng</th></tr>
+    <tr><td>2 cạnh + góc xen giữa</td><td><span class="m">\tfrac12bc\sin A</span></td></tr>
+    <tr><td>3 cạnh</td><td>Heron (rồi suy ra R, r, h)</td></tr>
+    <tr><td>Biết R</td><td><span class="m">\dfrac{abc}{4R}</span></td></tr>
+    <tr><td>Biết r (hoặc cần r)</td><td><span class="m">pr</span></td></tr>
+    <tr><td>Biết đường cao</td><td><span class="m">\tfrac12a\,h_a</span></td></tr></table>
+  </div>
+</section>
+
+<!-- ============ 5 ============ -->
+<section class="chap" id="vidu" data-track data-nav="5. Ví dụ">
+  <h2><span class="num">5</span>Ví dụ giải mẫu</h2>
+  <p class="lead">Mỗi ví dụ hiện từng bước một. Hãy <b>tự làm trước</b> trên giấy rồi bấm "Bước tiếp theo" để đối chiếu. Quy trình 4 bước cho mọi bài: <b>(1) vẽ hình, ghi dữ kiện → (2) chọn công thức → (3) thay số → (4) kiểm tra</b>.</p>
+  <div class="box"><div id="helper" class="helper"></div></div>
+  <div id="ex-fig"></div>
+  <div id="examples"></div>
+</section>
+
+<!-- ============ 6 ============ -->
+<section class="chap" id="luyentap" data-track data-nav="6. Luyện tập">
+  <h2><span class="num">6</span>Luyện tập</h2>
+  <h3>Thẻ ghi nhớ (bấm vào thẻ để lật)</h3>
+  <div id="cards"></div>
+  <h3>24 câu trắc nghiệm (bấm một đáp án, sẽ có giải thích ngay)</h3>
+  <div id="quiz"></div>
+  <h3>Những lỗi hay mắc nhất</h3>
+  <ol>
+    <li>Nhầm góc/cạnh: dùng cos của góc <b>không</b> xen giữa. → Luôn gạch chân góc, rồi tìm hai cạnh đi ra từ góc đó.</li>
+    <li>Quên <b>lấy căn</b> sau khi tính ra bình phương.</li>
+    <li>Quên dấu: định lí cosin là <b>trừ</b>; tử số của hệ quả là "hai kề trừ cạnh đối".</li>
+    <li>Máy tính ở chế độ radian (R) thay vì độ (D).</li>
+    <li>Tìm góc bằng sin rồi nhận luôn góc nhọn. → Cần góc thì dùng cosin.</li>
+    <li>Heron: nhầm <b>p</b> với chu vi (phải chia 2).</li>
+    <li>Dùng hệ thức tam giác vuông (AB² = BH·BC…) cho tam giác thường.</li>
+  </ol>
+</section>
+
+<!-- ============ 7 ============ -->
+<section class="chap" id="tonghop" data-track data-nav="7. Tóm tắt">
+  <h2><span class="num">7</span>Tóm tắt một trang</h2>
+  <p class="lead">Bấm Ctrl+P (hoặc Cmd+P) để in trang này hoặc chụp màn hình dán lên bàn học.</p>
+  <div class="tablewrap"><table class="cheat">
+    <tr><th>Phần</th><th>Công thức</th><th>Mẹo nhớ</th></tr>
+    <tr><td>Quy ước</td><td><span class="m">a=BC,\ b=AC,\ c=AB</span></td><td>Chữ thường đối diện chữ hoa cùng tên</td></tr>
+    <tr><td>Tam giác vuông</td><td><span class="m">BC^2=AB^2+AC^2;\ AB^2=BH\cdot BC;\ AC^2=CH\cdot CB</span></td><td>Cạnh góc vuông² = hình chiếu × huyền</td></tr>
+    <tr><td></td><td><span class="m">AH^2=BH\cdot CH;\ AH\cdot BC=AB\cdot AC;\ \tfrac1{AH^2}=\tfrac1{AB^2}+\tfrac1{AC^2};\ AM=\tfrac12BC</span></td><td>AH·BC = 2S</td></tr>
+    <tr><td>Cosin</td><td><span class="m">a^2=b^2+c^2-2bc\cos A</span> (và hai bản xoay vòng)</td><td>BC² không có A; vế phải: hai cạnh có A và cos A</td></tr>
+    <tr><td>Hệ quả</td><td><span class="m">\cos A=\dfrac{b^2+c^2-a^2}{2bc}</span> (và hai bản xoay vòng)</td><td>Hai cạnh kề cộng, cạnh đối trừ; tử &lt; 0 ⇒ góc tù</td></tr>
+    <tr><td>Sin</td><td><span class="m">\dfrac a{\sin A}=\dfrac b{\sin B}=\dfrac c{\sin C}=2R</span></td><td>Cạnh chia sin góc đối</td></tr>
+    <tr><td>Diện tích</td><td><span class="m">S=\tfrac12bc\sin A=\tfrac12ac\sin B=\tfrac12ab\sin C</span></td><td>Nửa tích hai cạnh × sin góc xen giữa</td></tr>
+    <tr><td></td><td><span class="m">S=\dfrac{abc}{4R};\quad S=pr;\quad S=\sqrt{p(p-a)(p-b)(p-c)};\quad S=\tfrac12a\,h_a</span></td><td><span class="m">p=\dfrac{a+b+c}2</span> là nửa chu vi</td></tr>
+    <tr><td>Luôn đúng</td><td><span class="m">A+B+C=180^\circ</span></td><td>Cần góc ⇒ dùng cosin, tránh bẫy sin</td></tr>
+  </table></div>
+</section>
+</main>
+<footer><div class="wrap">Nội dung theo vở ghi "§6. Hệ thức lượng trong tam giác" — Toán lớp 10. Chúc bạn học tốt! 🌟</div></footer>
+</body>
+</html>

@@ -1,0 +1,22 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const g = (id) => document.getElementById(id);
+  const L = window.Labs, P = window.Practice;
+  L.namingLab(g('lab-naming'));
+  L.sincosLab(g('lab-sincos'));
+  L.triLab(g('lab-plain'), 'plain', 'Kéo thả tam giác: cộng ba góc luôn bằng 180°');
+  L.rightLab(g('lab-right'));
+  L.cosRotateLab(g('lab-cosrot'));
+  L.triLab(g('lab-cosin'), 'cosin', 'Tam giác bất kì: kiểm chứng định lí cosin');
+  L.triLab(g('lab-sin'), 'sin', 'Định lí sin và đường tròn ngoại tiếp');
+  L.triLab(g('lab-area'), 'area', 'Diện tích: 7 cách tính — cùng một kết quả');
+  P.calcBox(g('calc-cs'), P.calcs.cosSide());
+  P.calcBox(g('calc-ca'), P.calcs.cosAngle());
+  P.calcBox(g('calc-sr'), P.calcs.sinRule());
+  P.calcBox(g('calc-he'), P.calcs.heron());
+  P.helper(g('helper'));
+  const ex = g('examples');
+  P.examples().forEach(function (e) { const d = document.createElement('div'); d.className = 'calc'; ex.appendChild(d); P.exampleBox(d, e); });
+  P.flashcards(g('cards'));
+  P.quiz(g('quiz'));
+  window.UI.setup();
+});
